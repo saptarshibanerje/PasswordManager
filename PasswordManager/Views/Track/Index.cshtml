@@ -1,0 +1,48 @@
+﻿@model PasswordManager.Models.Track
+
+@{
+    //ViewBag.Title = "Your Password List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Track", FormMethod.Post))
+{
+    <table style="border:1px solid blue">
+        <tr style="border:1px solid blue">
+            <th colspan="2" align="center" style="text-align: center"> Details</th>
+        </tr>
+        <tr>
+        <tr style="border:1px solid blue">
+            <td style="border:1px solid blue; padding:1px 1px 1px 1px; ">
+                <div class="text-primary"> Website/Domain</div>
+            </td>
+            <td style="border:1px solid blue; padding:1px 1px 1px 1px; ">
+                @Html.TextBoxFor(m => m.DomainName)
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid blue; padding:1px 1px 1px 1px;">
+                <div class="text-primary"> User Name</div>
+            </td>
+            <td style="border:1px solid blue; padding:1px 1px 1px 1px; ">
+                @Html.TextBoxFor(m => m.UserName , new {autocomplete = "off" })
+            </td>
+        </tr>
+        <tr>
+            <td style="border:1px solid blue; padding:1px 1px 1px 1px; ">
+                <div class="text-primary"> Password</div>
+            </td>
+            <td style="border:1px solid blue; padding:1px 1px 1px 1px; ">
+                @Html.TextBoxFor(m => m.Password, new { @Type = "Password", autocomplete = "off" })
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="2" style="border:1px solid blue; padding:1px 1px 1px 1px; ">
+                <input class="btn-primary" type="submit" value="Submit" />
+            </td>
+        </tr>
+    </table>
+
+}
